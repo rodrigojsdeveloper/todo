@@ -13,27 +13,9 @@
   font-family: "Inter", sans-serif;
 }
 
-:root {
-  --purple-200: #8284fa;
-  --purple-500: #5e60ce;
-
-  --blue-200: #4ea8de;
-  --blue-500: #1e6f9f;
-
-  --grey-100: #f2f2f2;
-  --grey-200: #d9d9d9;
-  --grey-300: #808080;
-  --grey-400: #333333;
-  --grey-500: #262626;
-  --grey-600: #1a1a1a;
-  --grey-700: #0d0d0d;
-
-  --transparent: transparent;
-}
-
 body {
-  color: var(--grey-100);
-  background-color: var(--grey-600);
+  color: #f2f2f2;
+  background-color: #1a1a1a;
 }
 
 button,
@@ -56,5 +38,5 @@ a {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 0.5px;
-  background-color: var(--grey-400);
+  background-color: #333333;
 }
