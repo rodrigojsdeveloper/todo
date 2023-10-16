@@ -1,13 +1,11 @@
-import Button from "@/components/Button";
 import Header from "@/components/Header";
-import Input from "@/components/Input";
+import Form from "@/components/Form";
 
 export default function Home() {
   return (
     <main>
       <Header />
-      <Input />
-      <Button />
+      <Form />
     </main>
   );
 }
