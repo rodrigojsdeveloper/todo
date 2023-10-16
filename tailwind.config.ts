@@ -27,6 +27,9 @@ const config: Config = {
           500: "#5E60CE",
         },
       },
+      height: {
+        200: "200px",
+      },
     },
   },
   plugins: [],
