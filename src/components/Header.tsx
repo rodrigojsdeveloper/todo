@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className="w-full h-200 bg-grey-700 flex justify-center items-center p-5">
+    <header className="w-full h-200 bg-grey-700 flex justify-center items-center p-2 max-sm:h-150 max-sm:items-start max-sm:pt-6">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="126"

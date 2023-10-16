@@ -32,6 +32,7 @@ const config: Config = {
       },
       height: {
         54: "54px",
+        150: "150px",
         200: "200px",
       },
       borderRadius: {
