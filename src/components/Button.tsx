@@ -1,8 +1,14 @@
+import { TaskContext } from "@/contexts/task.context";
+import { useContext } from "react";
+
 const Button = () => {
+  const { isLoading } = useContext(TaskContext);
+
   return (
     <button
       type="submit"
-      className="w-24 h-full flex justify-between items-center bg-blue-500 border border-solid border-blue-500 font-bold rounded-def gap-x-2 p-2.5 hover:bg-blue-800 hover:border-blue-800 active:bg-blue-900 active:border-blue-900 max-sm:p-2"
+      disabled={isLoading}
+      className="w-24 h-full flex justify-between items-center bg-blue-500 border border-solid border-blue-500 font-bold rounded-def gap-x-2 p-2.5 hover:bg-blue-800 hover:border-blue-800 active:bg-blue-900 active:border-blue-900 disabled:opacity-40 hover:disabled:bg-blue-500 hover:disabled:border-blue-500 active:disabled:bg-blue-500 active:disabled:border-blue-500 max-sm:p-2"
     >
       Create
       <svg
