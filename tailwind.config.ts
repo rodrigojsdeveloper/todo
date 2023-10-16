@@ -31,6 +31,7 @@ const config: Config = {
         transparent: "transparent",
       },
       height: {
+        50: "50px",
         54: "54px",
         150: "150px",
         200: "200px",

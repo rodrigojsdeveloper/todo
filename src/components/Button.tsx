@@ -2,7 +2,7 @@ const Button = () => {
   return (
     <button
       type="submit"
-      className="w-24 h-full flex justify-between items-center bg-blue-500 border border-solid border-blue-500 font-bold rounded-def p-2.5 hover:bg-blue-800 hover:border-blue-800 active:bg-blue-900 active:border-blue-900"
+      className="w-24 h-full flex justify-between items-center bg-blue-500 border border-solid border-blue-500 font-bold rounded-def gap-x-2 p-2.5 hover:bg-blue-800 hover:border-blue-800 active:bg-blue-900 active:border-blue-900 max-sm:p-2"
     >
       Create
       <svg
@@ -19,9 +19,9 @@ const Button = () => {
           r="96"
           fill="none"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="24"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="24"
         ></circle>
         <line
           x1="88"
@@ -30,9 +30,9 @@ const Button = () => {
           y2="128"
           fill="none"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="24"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="24"
         ></line>
         <line
           x1="128"
@@ -41,9 +41,9 @@ const Button = () => {
           y2="168"
           fill="none"
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="24"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="24"
         ></line>
       </svg>
     </button>
