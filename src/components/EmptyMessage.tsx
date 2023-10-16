@@ -1,6 +1,6 @@
 const EmptyMessage = () => {
   return (
-    <div className="w-full flex flex-col items-center mt-10 mx-auto">
+    <div className="w-full flex flex-col items-center mt-10 mx-auto gap-y-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -28,7 +28,7 @@ const EmptyMessage = () => {
         </defs>
       </svg>
 
-      <div className="flex flex-col items-center text-center mt-4">
+      <div className="flex flex-col items-center text-center">
         <p className="font-bold text-base text-grey-300">
           You don{"'"}t have tasks registered yet
         </p>

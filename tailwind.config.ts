@@ -34,6 +34,7 @@ const config: Config = {
         54: "54px",
         150: "150px",
         200: "200px",
+        335: "335px",
       },
       borderRadius: {
         def: "8px",
