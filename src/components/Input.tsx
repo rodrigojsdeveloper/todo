@@ -1,11 +1,13 @@
 import { TaskContext } from "@/contexts/task.context";
+import { InputProps } from "@/interfaces";
 import { useContext } from "react";
 
-const Input = () => {
+const Input = ({ register }: InputProps) => {
   const { setIsLoading } = useContext(TaskContext);
 
   return (
     <input
+      {...register("title")}
       onChange={(e) =>
         e.target.value.length > 0 ? setIsLoading(false) : setIsLoading(true)
       }

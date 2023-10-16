@@ -1,7 +1,13 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
+import { TaskContext } from "@/contexts/task.context";
+import { ITask } from "@/interfaces";
 
-const Task = () => {
+const Task = ({ task }: ITask) => {
+  const { toggleCheckbox } = useContext(TaskContext);
+
+  const [isChecked, setIsChecked] = useState<boolean>(task.checked);
+
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   const handleSvgHover = () => {
@@ -31,9 +37,18 @@ const Task = () => {
       <div className="flex flex-row items-center gap-x-4">
         <input
           type="checkbox"
+          onClick={() => toggleCheckbox(task, setIsChecked, isChecked)}
           className="w-4 h-4 bg-transparent border-2 border-solid border-blue-200 rounded-full input appearance-none place-content-center cursor-pointer checked:bg-blue-200"
         />
-        <h2 className="font-normal text-sm">Name</h2>
+        <h2
+          className={`font-normal text-sm ${
+            isChecked
+              ? "text-grey-300 line-through"
+              : "text-grey-100 no-underline"
+          }`}
+        >
+          {task.title}
+        </h2>
       </div>
 
       <svg
