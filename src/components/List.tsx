@@ -9,7 +9,7 @@ const List = () => {
 
   return (
     <menu className="w-full h-335 flex flex-col gap-y-3 overflow-y-auto max-sm:gap-y-2">
-      {list.length > 0 ? (
+      {list !== null && list.length > 0 ? (
         list.map((task, index) => <Task key={index} task={task} />)
       ) : (
         <EmptyMessage />

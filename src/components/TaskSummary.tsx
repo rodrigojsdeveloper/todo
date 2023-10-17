@@ -17,7 +17,9 @@ const TaskSummary = () => {
       <div className="flex flex-row justify-between items-center text-sm gap-x-2">
         <p className="text-purple-200">Completed</p>
         <span className="font-extrabold bg-grey-400 py-0.5 px-2 rounded-full">
-          {listCheckedLength}
+          {listCheckedLength > 0
+            ? `${listCheckedLength} of ${listLength}`
+            : listCheckedLength}
         </span>
       </div>
     </div>

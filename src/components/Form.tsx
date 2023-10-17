@@ -8,12 +8,13 @@ import { useForm } from "react-hook-form";
 const Form = () => {
   const { addTask } = useContext(TaskContext);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmitFunction = (data: any) => {
     data.id = crypto.randomUUID();
     data.checked = false;
     addTask(data);
+    reset();
   };
 
   return (

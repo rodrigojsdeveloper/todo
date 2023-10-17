@@ -1,11 +1,19 @@
 "use client";
 import { ITaskProps, ITaskContextData, IChildren } from "../interfaces";
-import { Dispatch, createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const TaskContext = createContext({} as ITaskContextData);
 
 export const TaskContextProvider = ({ children }: IChildren) => {
-  const [list, setList] = useState<Array<ITaskProps>>([]);
+  const isBrowser = typeof window !== "undefined";
+  const localStorageKey = "ToDo: list";
+  const listFromStorage = isBrowser
+    ? localStorage.getItem(localStorageKey)
+    : null;
+
+  const [list, setList] = useState<Array<ITaskProps>>(
+    isBrowser && listFromStorage ? JSON.parse(listFromStorage) : null
+  );
 
   const [listLength, setListLength] = useState<number>(0);
 
@@ -13,50 +21,54 @@ export const TaskContextProvider = ({ children }: IChildren) => {
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const addTask = (task: ITaskProps) => {
-    setList([task, ...list]);
-    localStorage.setItem("ToDo: list", JSON.stringify([task, ...list]));
-  };
-
-  const loadListFromLocalStorage = () => {
-    const storedList = localStorage.getItem("ToDo: list");
-    if (storedList) {
-      return JSON.parse(storedList);
+  const saveListToLocalStorage = (updatedList: ITaskProps[]) => {
+    if (isBrowser) {
+      localStorage.setItem(localStorageKey, JSON.stringify(updatedList));
     }
-    return [];
   };
 
-  const toggleCheckbox = (
-    task: ITaskProps,
-    setIsChecked: Dispatch<React.SetStateAction<boolean>>,
-    isChecked: boolean
-  ) => {
-    task.checked = !task.checked;
-    setIsChecked(!isChecked);
+  const addTask = (task: ITaskProps) => {
+    const updatedList = [task, ...list];
+    setList(updatedList);
+    saveListToLocalStorage(updatedList);
+  };
+
+  const removeTask = (task: ITaskProps) => {
+    const updatedList = list.filter((t: ITaskProps) => t.id !== task.id);
+    setList(updatedList);
+    saveListToLocalStorage(updatedList);
+  };
+
+  const toggleCheckbox = (task: ITaskProps) => {
+    const updatedTask = { ...task, checked: !task.checked };
+    const updatedList = list.map((item) =>
+      item.id === task.id ? updatedTask : item
+    );
+
+    setList(updatedList);
+    saveListToLocalStorage(updatedList);
   };
 
   useEffect(() => {
-    const list = loadListFromLocalStorage();
-
-    setList(list);
     setListLength(list.length);
     setListCheckedLength(
-      list.filter((task: ITaskProps) => task.checked === true).length
+      list.filter((task: ITaskProps) => task.checked).length
     );
-  }, []);
+  }, [list]);
+
+  const taskContextData = {
+    addTask,
+    isLoading,
+    setIsLoading,
+    list,
+    listLength,
+    listCheckedLength,
+    toggleCheckbox,
+    removeTask,
+  };
 
   return (
-    <TaskContext.Provider
-      value={{
-        addTask,
-        isLoading,
-        setIsLoading,
-        list,
-        listLength,
-        listCheckedLength,
-        toggleCheckbox,
-      }}
-    >
+    <TaskContext.Provider value={taskContextData}>
       {children}
     </TaskContext.Provider>
   );

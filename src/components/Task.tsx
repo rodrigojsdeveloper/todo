@@ -4,7 +4,7 @@ import { TaskContext } from "@/contexts/task.context";
 import { ITask } from "@/interfaces";
 
 const Task = ({ task }: ITask) => {
-  const { toggleCheckbox } = useContext(TaskContext);
+  const { toggleCheckbox, removeTask } = useContext(TaskContext);
 
   const [isChecked, setIsChecked] = useState<boolean>(task.checked);
 
@@ -32,12 +32,19 @@ const Task = ({ task }: ITask) => {
     }
   };
 
+  const handleCheckboxChange = () => {
+    const newIsChecked = !isChecked;
+    setIsChecked(newIsChecked);
+    toggleCheckbox(task);
+  };
+
   return (
     <div className="w-full h-14 flex flex-row justify-between items-center bg-grey-500 rounded-def p-5">
       <div className="flex flex-row items-center gap-x-4">
         <input
           type="checkbox"
-          onClick={() => toggleCheckbox(task, setIsChecked, isChecked)}
+          defaultChecked={isChecked}
+          onClick={handleCheckboxChange}
           className="w-4 h-4 bg-transparent border-2 border-solid border-blue-200 rounded-full input appearance-none place-content-center cursor-pointer checked:bg-blue-200"
         />
         <h2
@@ -61,6 +68,7 @@ const Task = ({ task }: ITask) => {
         onMouseEnter={handleSvgHover}
         onMouseLeave={handleSvgHoverEnd}
         ref={svgRef}
+        onClick={() => removeTask(task)}
       >
         <rect width="256" height="256" fill="none"></rect>
         <line
