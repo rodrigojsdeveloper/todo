@@ -7,13 +7,8 @@ export const TaskContext = createContext({} as ITaskContextData);
 export const TaskContextProvider = ({ children }: IChildren) => {
   const isBrowser = typeof window !== "undefined";
   const localStorageKey = "ToDo: list";
-  const listFromStorage = isBrowser
-    ? localStorage.getItem(localStorageKey)
-    : null;
 
-  const [list, setList] = useState<Array<ITaskProps>>(
-    isBrowser && listFromStorage ? JSON.parse(listFromStorage) : null
-  );
+  const [list, setList] = useState<Array<ITaskProps>>([]);
 
   const [listLength, setListLength] = useState<number>(0);
 
@@ -25,6 +20,14 @@ export const TaskContextProvider = ({ children }: IChildren) => {
     if (isBrowser) {
       localStorage.setItem(localStorageKey, JSON.stringify(updatedList));
     }
+  };
+
+  const loadListFromLocalStorage = () => {
+    const storedList = localStorage.getItem(localStorageKey);
+    if (storedList) {
+      return JSON.parse(storedList);
+    }
+    return [];
   };
 
   const addTask = (task: ITaskProps) => {
@@ -50,6 +53,8 @@ export const TaskContextProvider = ({ children }: IChildren) => {
   };
 
   useEffect(() => {
+    const storedList = loadListFromLocalStorage();
+    setList(storedList);
     setListLength(list.length);
     setListCheckedLength(
       list.filter((task: ITaskProps) => task.checked).length
