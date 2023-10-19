@@ -57,7 +57,7 @@ const TaskContextProvider = ({ children }: PropsWithChildren) => {
     setList(storedList)
     setListLength(list.length)
     setListCheckedLength(list.filter((task: ITaskProps) => task.checked).length)
-  }, [list])
+  }, [])
 
   const taskContextData: ITaskContextData = {
     addTask,

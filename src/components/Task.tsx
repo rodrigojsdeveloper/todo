@@ -1,12 +1,10 @@
 'use client'
-import React, { useContext, useRef, useState } from 'react'
 import { TaskContext } from '@/contexts/task.context'
+import React, { useContext, useRef } from 'react'
 import { ITask } from '@/interfaces'
 
 const Task = ({ task }: ITask) => {
   const { toggleCheckbox, removeTask } = useContext(TaskContext)
-
-  const [isChecked, setIsChecked] = useState<boolean>(task.checked)
 
   const svgRef = useRef<SVGSVGElement | null>(null)
 
@@ -33,8 +31,6 @@ const Task = ({ task }: ITask) => {
   }
 
   const handleCheckboxChange = () => {
-    const newIsChecked = !isChecked
-    setIsChecked(newIsChecked)
     toggleCheckbox(task)
   }
 
@@ -43,13 +39,13 @@ const Task = ({ task }: ITask) => {
       <div className="flex flex-row items-center gap-x-4">
         <input
           type="checkbox"
-          defaultChecked={isChecked}
-          onClick={handleCheckboxChange}
+          checked={task.checked}
+          onChange={handleCheckboxChange}
           className="input h-4 w-4 cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid border-blue-200 bg-transparent checked:bg-blue-200"
         />
         <h2
           className={`text-sm font-normal ${
-            isChecked
+            task.checked
               ? 'text-grey-300 line-through'
               : 'text-grey-100 no-underline'
           }`}

@@ -1,18 +1,28 @@
 'use client'
-import { TaskContext } from '@/contexts/task.context'
 import { FieldValues, useForm } from 'react-hook-form'
-import { ITaskProps } from '@/interfaces'
+import { TaskContext } from '@/contexts/task.context'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { taskSchema } from '@/schemas/task.schema'
 import { useContext } from 'react'
 import Button from './Button'
 import Input from './Input'
+import * as zod from 'zod'
+
+type FormData = zod.infer<typeof taskSchema>
 
 const Form = () => {
   const { addTask } = useContext(TaskContext)
 
-  const { register, handleSubmit, reset } = useForm()
+  const schema = zod.object({
+    title: zod.string().min(1),
+  })
+
+  const { register, handleSubmit, reset } = useForm({
+    resolver: zodResolver(schema),
+  })
 
   const onSubmitFunction = (data: FieldValues) => {
-    const taskData: ITaskProps = {
+    const taskData: FormData = {
       id: crypto.randomUUID(),
       title: data.title,
       checked: false,
