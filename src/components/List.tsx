@@ -1,21 +1,21 @@
-"use client";
-import { TaskContext } from "@/contexts/task.context";
-import EmptyMessage from "./EmptyMessage";
-import { useContext } from "react";
-import Task from "./Task";
+'use client'
+import { TaskContext } from '@/contexts/task.context'
+import EmptyMessage from './EmptyMessage'
+import { useContext } from 'react'
+import Task from './Task'
 
 const List = () => {
-  const { list } = useContext(TaskContext);
+  const { list } = useContext(TaskContext)
 
   return (
-    <menu className="w-full h-335 flex flex-col gap-y-3 overflow-y-auto max-sm:gap-y-2">
+    <menu className="flex h-335 w-full flex-col gap-y-3 overflow-y-auto max-sm:gap-y-2">
       {list.length > 0 ? (
         list.map((task, index) => <Task key={index} task={task} />)
       ) : (
         <EmptyMessage />
       )}
     </menu>
-  );
-};
+  )
+}
 
-export default List;
+export default List

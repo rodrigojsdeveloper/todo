@@ -1,6 +1,6 @@
 const EmptyMessage = () => {
   return (
-    <div className="w-full flex flex-col items-center mt-10 mx-auto gap-y-4">
+    <div className="mx-auto mt-10 flex w-full flex-col items-center gap-y-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -29,15 +29,15 @@ const EmptyMessage = () => {
       </svg>
 
       <div className="flex flex-col items-center text-center">
-        <p className="font-bold text-base text-grey-300">
+        <p className="text-base font-bold text-grey-300">
           You don{"'"}t have tasks registered yet
         </p>
-        <p className="font-normal text-sm text-grey-300">
+        <p className="text-sm font-normal text-grey-300">
           Create tasks and organize your to-do items
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EmptyMessage;
+export default EmptyMessage

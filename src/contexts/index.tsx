@@ -1,8 +1,8 @@
-import { TaskContextProvider } from "./task.context";
-import { IChildren } from "../interfaces";
+import { TaskContextProvider } from './task.context'
+import { PropsWithChildren } from 'react'
 
-const Providers = ({ children }: IChildren) => {
-  return <TaskContextProvider>{children}</TaskContextProvider>;
-};
+const Providers = ({ children }: PropsWithChildren) => {
+  return <TaskContextProvider>{children}</TaskContextProvider>
+}
 
-export { Providers };
+export { Providers }

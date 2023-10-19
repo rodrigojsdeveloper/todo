@@ -1,57 +1,57 @@
-"use client";
-import React, { useContext, useRef, useState } from "react";
-import { TaskContext } from "@/contexts/task.context";
-import { ITask } from "@/interfaces";
+'use client'
+import React, { useContext, useRef, useState } from 'react'
+import { TaskContext } from '@/contexts/task.context'
+import { ITask } from '@/interfaces'
 
 const Task = ({ task }: ITask) => {
-  const { toggleCheckbox, removeTask } = useContext(TaskContext);
+  const { toggleCheckbox, removeTask } = useContext(TaskContext)
 
-  const [isChecked, setIsChecked] = useState<boolean>(task.checked);
+  const [isChecked, setIsChecked] = useState<boolean>(task.checked)
 
-  const svgRef = useRef<SVGSVGElement | null>(null);
+  const svgRef = useRef<SVGSVGElement | null>(null)
 
   const handleSvgHover = () => {
     const svgElements = svgRef.current?.querySelectorAll<
       SVGPathElement | SVGLineElement
-    >("path, line");
+    >('path, line')
     if (svgElements) {
       svgElements.forEach((element) => {
-        element.style.stroke = "#E25858";
-      });
+        element.style.stroke = '#E25858'
+      })
     }
-  };
+  }
 
   const handleSvgHoverEnd = () => {
     const svgElements = svgRef.current?.querySelectorAll<
       SVGPathElement | SVGLineElement
-    >("path, line");
+    >('path, line')
     if (svgElements) {
       svgElements.forEach((element) => {
-        element.style.stroke = "#808080";
-      });
+        element.style.stroke = '#808080'
+      })
     }
-  };
+  }
 
   const handleCheckboxChange = () => {
-    const newIsChecked = !isChecked;
-    setIsChecked(newIsChecked);
-    toggleCheckbox(task);
-  };
+    const newIsChecked = !isChecked
+    setIsChecked(newIsChecked)
+    toggleCheckbox(task)
+  }
 
   return (
-    <div className="w-full h-14 flex flex-row justify-between items-center bg-grey-500 rounded-def p-5">
+    <div className="flex h-14 w-full flex-row items-center justify-between rounded-def bg-grey-500 p-5">
       <div className="flex flex-row items-center gap-x-4">
         <input
           type="checkbox"
           defaultChecked={isChecked}
           onClick={handleCheckboxChange}
-          className="w-4 h-4 bg-transparent border-2 border-solid border-blue-200 rounded-full input appearance-none place-content-center cursor-pointer checked:bg-blue-200"
+          className="input h-4 w-4 cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid border-blue-200 bg-transparent checked:bg-blue-200"
         />
         <h2
-          className={`font-normal text-sm ${
+          className={`text-sm font-normal ${
             isChecked
-              ? "text-grey-300 line-through"
-              : "text-grey-100 no-underline"
+              ? 'text-grey-300 line-through'
+              : 'text-grey-100 no-underline'
           }`}
         >
           {task.title}
@@ -122,7 +122,7 @@ const Task = ({ task }: ITask) => {
         ></path>
       </svg>
     </div>
-  );
-};
+  )
+}
 
-export default Task;
+export default Task
