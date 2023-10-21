@@ -1,5 +1,5 @@
+import { Dispatch, MutableRefObject, SetStateAction } from 'react'
 import { FieldValues, UseFormRegister } from 'react-hook-form'
-import { Dispatch, SetStateAction } from 'react'
 
 export interface ITaskProps {
   id: string
@@ -20,6 +20,10 @@ export interface ITaskContextData {
   listCheckedLength: number
   toggleCheckbox: (task: ITaskProps) => void
   removeTask: (task: ITaskProps) => void
+  handleSvgHover: () => void
+  handleSvgHoverEnd: () => void
+  handleCheckboxChange: (task: ITaskProps) => void
+  svgRef: MutableRefObject<SVGSVGElement | null>
 }
 
 export interface InputProps {

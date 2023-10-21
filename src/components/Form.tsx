@@ -2,7 +2,7 @@
 import { FieldValues, useForm } from 'react-hook-form'
 import { TaskContext } from '@/contexts/task.context'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { taskSchema } from '@/schemas/task.schema'
+import taskSchema from '@/schemas/task.schema'
 import { useContext } from 'react'
 import Button from './Button'
 import Input from './Input'

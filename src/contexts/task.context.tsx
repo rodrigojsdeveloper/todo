@@ -1,12 +1,20 @@
 'use client'
-import { createContext, useEffect, useState, PropsWithChildren } from 'react'
 import { ITaskProps, ITaskContextData } from '../interfaces'
+import {
+  createContext,
+  useEffect,
+  useState,
+  PropsWithChildren,
+  useRef,
+} from 'react'
 
 const TaskContext = createContext({} as ITaskContextData)
 
 const TaskContextProvider = ({ children }: PropsWithChildren) => {
   const isBrowser = typeof window !== 'undefined'
   const localStorageKey = 'ToDo: list'
+
+  const svgRef = useRef<SVGSVGElement | null>(null)
 
   const [list, setList] = useState<Array<ITaskProps>>([])
 
@@ -52,11 +60,39 @@ const TaskContextProvider = ({ children }: PropsWithChildren) => {
     saveListToLocalStorage(updatedList)
   }
 
+  const handleSvgHover = () => {
+    const svgElements = svgRef.current?.querySelectorAll<
+      SVGPathElement | SVGLineElement
+    >('path, line')
+    if (svgElements) {
+      svgElements.forEach((element) => {
+        element.style.stroke = '#E25858'
+      })
+    }
+  }
+
+  const handleSvgHoverEnd = () => {
+    const svgElements = svgRef.current?.querySelectorAll<
+      SVGPathElement | SVGLineElement
+    >('path, line')
+    if (svgElements) {
+      svgElements.forEach((element) => {
+        element.style.stroke = '#808080'
+      })
+    }
+  }
+
+  const handleCheckboxChange = (task: ITaskProps) => {
+    toggleCheckbox(task)
+  }
+
   useEffect(() => {
     const storedList = loadListFromLocalStorage()
     setList(storedList)
-    setListLength(list.length)
-    setListCheckedLength(list.filter((task: ITaskProps) => task.checked).length)
+    setListLength(storedList.length)
+    setListCheckedLength(
+      storedList.filter((task: ITaskProps) => task.checked).length,
+    )
   }, [])
 
   const taskContextData: ITaskContextData = {
@@ -68,6 +104,10 @@ const TaskContextProvider = ({ children }: PropsWithChildren) => {
     listCheckedLength,
     toggleCheckbox,
     removeTask,
+    handleSvgHover,
+    handleSvgHoverEnd,
+    handleCheckboxChange,
+    svgRef,
   }
 
   return (

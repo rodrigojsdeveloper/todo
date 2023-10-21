@@ -6,4 +6,4 @@ const taskSchema = z.object({
   checked: z.boolean(),
 })
 
-export { taskSchema }
+export default taskSchema

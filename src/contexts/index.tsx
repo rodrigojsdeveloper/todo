@@ -5,4 +5,4 @@ const Providers = ({ children }: PropsWithChildren) => {
   return <TaskContextProvider>{children}</TaskContextProvider>
 }
 
-export { Providers }
+export default Providers
