@@ -87,12 +87,16 @@ const TaskContextProvider = ({ children }: PropsWithChildren) => {
   }
 
   useEffect(() => {
+    setIsLoading(true)
+
     const storedList = loadListFromLocalStorage()
     setList(storedList)
     setListLength(storedList.length)
     setListCheckedLength(
       storedList.filter((task: ITaskProps) => task.checked).length,
     )
+
+    setIsLoading(false)
   }, [])
 
   const taskContextData: ITaskContextData = {

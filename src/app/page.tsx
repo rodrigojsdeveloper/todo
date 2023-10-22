@@ -1,7 +1,7 @@
 import TaskSummary from '@/components/TaskSummary'
+import TaskList from '@/components/TaskList'
 import Header from '@/components/Header'
 import Form from '@/components/Form'
-import List from '@/components/List'
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <div className="mx-auto -mt-6 w-full max-w-3xl px-2">
         <Form />
         <TaskSummary />
-        <List />
+        <TaskList />
       </div>
     </main>
   )

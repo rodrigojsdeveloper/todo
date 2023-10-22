@@ -1,13 +1,7 @@
-import { TaskContext } from '@/contexts/task.context'
-import { useContext } from 'react'
-
 const Button = () => {
-  const { isLoading } = useContext(TaskContext)
-
   return (
     <button
       type="submit"
-      disabled={isLoading}
       className="flex h-full w-24 items-center justify-between gap-x-2 rounded-def border border-solid border-blue-500 bg-blue-500 p-2.5 font-bold hover:border-blue-800 hover:bg-blue-800 active:border-blue-900 active:bg-blue-900 disabled:opacity-40 hover:disabled:border-blue-500 hover:disabled:bg-blue-500 active:disabled:border-blue-500 active:disabled:bg-blue-500 max-sm:p-2"
     >
       Create

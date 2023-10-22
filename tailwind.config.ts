@@ -41,6 +41,14 @@ const config: Config = {
       borderRadius: {
         def: '8px',
       },
+      keyframes: {
+        loading: {
+          '100%': { transform: 'rotate(1turn)' },
+        },
+      },
+      animation: {
+        loading: 'loading 1s infinite linear',
+      },
     },
   },
   plugins: [],

@@ -2,14 +2,17 @@
 import { TaskContext } from '@/contexts/task.context'
 import EmptyMessage from './EmptyMessage'
 import { useContext } from 'react'
+import Loading from './Loading'
 import Task from './Task'
 
-const List = () => {
-  const { list } = useContext(TaskContext)
+const TaskList = () => {
+  const { list, isLoading } = useContext(TaskContext)
 
   return (
     <menu className="flex h-335 w-full flex-col gap-y-3 overflow-y-auto max-sm:gap-y-2">
-      {list.length > 0 ? (
+      {isLoading ? (
+        <Loading />
+      ) : list.length > 0 ? (
         list.map((task, index) => <Task key={index} task={task} />)
       ) : (
         <EmptyMessage />
@@ -18,4 +21,4 @@ const List = () => {
   )
 }
 
-export default List
+export default TaskList
