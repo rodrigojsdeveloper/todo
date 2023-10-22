@@ -17,14 +17,7 @@ https://github.com/rodrigojsdeveloper/todo.git
 
 ## Package Manager
 
-This project uses NPM as a package manager. Make sure you have it installed before proceeding. If you don't already have it, you can download it <a href="https://nodejs.org/en/download">here</a>.
-
-### Warning:
-
-Although NPM is the recommended package manager, you can also use Yarn by running the following commands:
-
-- To install dependencies: yarn
-- To start ToDo: yarn dev
+This project uses NPM as its package manager. Make sure you have it installed before continuing.
 
 ## Installation of Dependencies
 

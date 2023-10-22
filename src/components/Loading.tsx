@@ -1,6 +1,6 @@
 const Loading = () => {
   return (
-    <div className="customLoader animate-loading m-auto h-12 w-12 rounded-full" />
+    <div className="customLoader m-auto h-12 w-12 animate-loading rounded-full" />
   )
 }
 

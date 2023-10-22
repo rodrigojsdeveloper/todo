@@ -1,35 +1,55 @@
 'use client'
 import { TaskContext } from '@/contexts/task.context'
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { ITask } from '@/interfaces'
 
 const Task = ({ task }: ITask) => {
-  const {
-    svgRef,
-    removeTask,
-    handleSvgHover,
-    handleSvgHoverEnd,
-    handleCheckboxChange,
-  } = useContext(TaskContext)
+  const svgRef = useRef<SVGSVGElement | null>(null)
+
+  const { removeTask, handleCheckboxChange } = useContext(TaskContext)
+
+  const handleSvgHover = () => {
+    const svgElements = svgRef.current?.querySelectorAll<
+      SVGPathElement | SVGLineElement
+    >('path, line')
+    if (svgElements) {
+      svgElements.forEach((element) => {
+        element.style.stroke = '#E25858'
+      })
+    }
+  }
+
+  const handleSvgHoverEnd = () => {
+    const svgElements = svgRef.current?.querySelectorAll<
+      SVGPathElement | SVGLineElement
+    >('path, line')
+    if (svgElements) {
+      svgElements.forEach((element) => {
+        element.style.stroke = '#808080'
+      })
+    }
+  }
 
   return (
     <div className="flex h-14 w-full flex-row items-center justify-between rounded-def bg-grey-500 p-5">
       <div className="flex flex-row items-center gap-x-4">
         <input
+          id={`checked-${task.title}`}
           type="checkbox"
           checked={task.checked}
           onChange={() => handleCheckboxChange(task)}
           className="input h-4 w-4 cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid border-blue-200 bg-transparent checked:bg-blue-200"
         />
-        <h2
+        <label
           className={`text-sm font-normal ${
             task.checked
-              ? 'text-grey-300 line-through'
+              ? 'text-greyChecked line-through'
               : 'text-grey-100 no-underline'
           }`}
+          htmlFor={`checked-${task.title}`}
         >
           {task.title}
-        </h2>
+        </label>
       </div>
 
       <svg

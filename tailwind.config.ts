@@ -18,6 +18,7 @@ const config: Config = {
           600: '#1A1A1A',
           700: '#0D0D0D',
         },
+        greyChecked: '#B3B3B3',
         blue: {
           200: '#4EA8DE',
           500: '#1E6F9F',
