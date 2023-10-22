@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import Providers from '@/contexts'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   title: 'ToDo',
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${inter.variable} font-inter`}>
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>

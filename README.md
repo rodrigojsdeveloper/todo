@@ -40,7 +40,7 @@ npm run dev
 You can access the ToDo application at the following link:
 
 ```
-https://todo-boost.vercel.app/
+https://todo-boost.vercel.app
 ```
 
 <br/>
