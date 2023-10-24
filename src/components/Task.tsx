@@ -15,6 +15,7 @@ const Task = ({ task }: ITask) => {
     if (svgElements) {
       svgElements.forEach((element) => {
         element.style.stroke = '#E25858'
+        element.style.transition = '0.3s'
       })
     }
   }
@@ -31,7 +32,7 @@ const Task = ({ task }: ITask) => {
   }
 
   return (
-    <div className="flex h-14 w-full flex-row items-center justify-between rounded-def bg-grey-500 p-5">
+    <div className="flex h-14 w-full flex-row items-center justify-between rounded-def border border-solid border-grey-400 bg-grey-500 p-5">
       <div className="flex flex-row items-center gap-x-4">
         <input
           id={`checked-${task.title}`}
