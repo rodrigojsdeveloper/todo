@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <div className="mx-auto -mt-6 w-full max-w-3xl px-2">
+      <div className="mx-auto -mt-6 w-full max-w-3xl px-2.5 pb-2.5">
         <Form />
         <TaskSummary />
         <TaskList />
