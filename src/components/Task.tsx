@@ -39,14 +39,13 @@ const Task = ({ task }: ITask) => {
           type="checkbox"
           checked={task.checked}
           onChange={() => handleCheckboxChange(task)}
-          className="input h-4 w-4 cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid border-blue-200 bg-transparent checked:bg-blue-200"
+          className="input border-blue-dark checked:bg-blue-dark h-4 w-4 cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid bg-transparent"
         />
         <label
-          className={`text-sm font-normal ${
-            task.checked
+          className={`text-sm font-normal ${task.checked
               ? 'text-greyChecked line-through'
               : 'text-grey-100 no-underline'
-          }`}
+            }`}
           htmlFor={`checked-${task.title}`}
         >
           {task.title}

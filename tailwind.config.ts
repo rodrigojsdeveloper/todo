@@ -23,26 +23,16 @@ const config: Config = {
         },
         greyChecked: '#B3B3B3',
         blue: {
-          200: '#4EA8DE',
-          500: '#1E6F9F',
-          800: '#1A597E',
-          900: '#144b6b',
+          DEFAULT: '#1E6F9F',
+          dark: '#4EA8DE',
         },
         purple: {
-          200: '#8284FA',
-          500: '#5E60CE',
+          DEFAULT: '#8284FA',
+          dark: '#5E60CE',
         },
       },
-      height: {
-        49: '49px',
-        50: '50px',
-        54: '54px',
-        150: '150px',
-        200: '200px',
-        335: '335px',
-      },
       borderRadius: {
-        def: '8px',
+        def: '0.5rem',
       },
       keyframes: {
         loading: {
@@ -56,4 +46,5 @@ const config: Config = {
   },
   plugins: [],
 }
+
 export default config

@@ -34,7 +34,7 @@ const Form = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmitFunction)}
-      className="flex h-54 justify-center gap-x-2 max-sm:h-50"
+      className="flex h-[3.125rem] justify-center gap-x-2 sm:h-[3.375rem]"
     >
       <Input register={register} />
       <Button />
