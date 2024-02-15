@@ -1,12 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 * {
   border: 0;
   margin: 0;
   padding: 0;
-  outline: 0;
+  outline: 0 !important;
   resize: none;
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -18,13 +18,19 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
   color: #f2f2f2;
   background-color: #1a1a1a;
 }
 
-button,
-a {
+:is(button, a) {
   transition: 0.5s;
   cursor: pointer;
 }
@@ -58,13 +64,13 @@ a {
   background-repeat: no-repeat;
   background-position: 70%;
 
-  background-color: #5E60CE;
-  border-color: #5E60CE;
+  background-color: #5e60ce;
+  border-color: #5e60ce;
 }
 
 .customLoader {
   background:
-    radial-gradient(farthest-side,#333333 94%,#0000) top/8px 8px no-repeat,
-    conic-gradient(#0000 30%,#333333);
-  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    radial-gradient(farthest-side, #333333 94%, #0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%, #333333);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
 }

@@ -1,9 +1,9 @@
 'use client'
 import { TaskContext } from '@/contexts/task.context'
-import EmptyMessage from './EmptyMessage'
+import EmptyMessage from './empty-message'
 import { useContext } from 'react'
-import Loading from './Loading'
-import Task from './Task'
+import Loading from './loading'
+import Task from './task'
 
 const TaskList = () => {
   const { taskList, isLoading } = useContext(TaskContext)

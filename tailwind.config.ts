@@ -32,7 +32,6 @@ const config: Config = {
           200: '#8284FA',
           500: '#5E60CE',
         },
-        transparent: 'transparent',
       },
       height: {
         49: '49px',
