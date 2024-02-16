@@ -50,7 +50,7 @@ export const Task = ({ task }: ITask) => {
         />
         <label
           className={cn(
-            'text-pretty w-full max-w-[39.5rem] text-sm font-normal',
+            'w-full max-w-[39.5rem] text-pretty text-sm font-normal',
             task.checked
               ? 'text-gray-300 line-through'
               : 'text-gray-100 no-underline',
