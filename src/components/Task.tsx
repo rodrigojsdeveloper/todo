@@ -36,21 +36,21 @@ export const Task = ({ task }: ITask) => {
   return (
     <div
       className={cn(
-        'flex h-14 w-full flex-row items-center justify-between rounded-def border border-solid border-gray-400 bg-gray-500 p-5 duration-200',
+        'flex w-full flex-row justify-between gap-x-4 rounded-def border border-solid border-gray-400 bg-gray-500 p-4 duration-200',
         task.checked ? 'border-gray-500' : 'border-gray-400',
       )}
     >
-      <div className="flex flex-row items-center gap-x-4">
+      <div className="flex flex-row gap-x-4">
         <input
           id={`checked-${task.title}`}
           type="checkbox"
           checked={task.checked}
           onChange={() => handleCheckboxChange(task)}
-          className="input h-[1.091rem] w-[1.091rem] cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid border-blue bg-transparent checked:border-purple-dark checked:bg-purple-dark hover:border-blue-dark hover:bg-blue/20 checked:hover:border-purple checked:hover:bg-purple"
+          className="input mt-0.5 h-[1.091rem] min-w-[1.091rem] cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid border-blue bg-transparent bg-[55%] bg-no-repeat checked:border-purple-dark checked:bg-purple-dark hover:border-blue-dark hover:bg-blue/20 checked:hover:border-purple checked:hover:bg-purple"
         />
         <label
           className={cn(
-            'text-sm font-normal',
+            'text-pretty w-full max-w-[39.5rem] text-sm font-normal',
             task.checked
               ? 'text-gray-300 line-through'
               : 'text-gray-100 no-underline',
@@ -67,7 +67,7 @@ export const Task = ({ task }: ITask) => {
         height="18"
         fill="currentColor"
         viewBox="0 0 256 256"
-        className="cursor-pointer"
+        className="mt-0.5 min-w-[1.125rem] cursor-pointer"
         onMouseEnter={handleSvgHover}
         onMouseLeave={handleSvgHoverEnd}
         ref={svgRef}
