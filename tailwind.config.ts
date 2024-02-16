@@ -12,7 +12,7 @@ const config: Config = {
         inter: ['var(--font-inter)'],
       },
       colors: {
-        grey: {
+        gray: {
           100: '#F2F2F2',
           200: '#D9D9D9',
           300: '#808080',
@@ -21,10 +21,9 @@ const config: Config = {
           600: '#1A1A1A',
           700: '#0D0D0D',
         },
-        greyChecked: '#B3B3B3',
         blue: {
-          DEFAULT: '#1E6F9F',
-          dark: '#4EA8DE',
+          dark: '#1E6F9F',
+          DEFAULT: '#4EA8DE',
         },
         purple: {
           DEFAULT: '#8284FA',

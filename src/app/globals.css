@@ -60,12 +60,9 @@ a {
 }
 
 .input[type="checkbox"]:checked {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24"><path fill="%23f2f2f2" d="m9.55 15.15l8.475-8.475q.3-.3.713-.3t.712.3q.3.3.3.713t-.3.712l-9.2 9.2q-.3.3-.7.3t-.7-.3L4.55 13q-.3-.3-.288-.713t.313-.712q.3-.3.713-.3t.712.3l3.55 3.575Z"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M7.93059 0.342093L3.59865 4.67403L1.11618 2.19156L0.280273 3.02747L3.59865 6.34584L8.76649 1.178L7.93059 0.342093Z" fill="%23F2F2F2"/></svg>');
   background-repeat: no-repeat;
-  background-position: 70%;
-
-  background-color: #5e60ce;
-  border-color: #5e60ce;
+  background-position: 55%;
 }
 
 .customLoader {

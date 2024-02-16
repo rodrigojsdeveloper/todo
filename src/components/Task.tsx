@@ -32,19 +32,22 @@ const Task = ({ task }: ITask) => {
   }
 
   return (
-    <div className="flex h-14 w-full flex-row items-center justify-between rounded-def border border-solid border-grey-400 bg-grey-500 p-5">
+    <div
+      className={`flex h-14 w-full flex-row items-center justify-between rounded-def border border-solid border-gray-400 bg-gray-500 p-5 duration-200 ${task.checked ? 'border-gray-500' : 'border-gray-400'
+        }`}
+    >
       <div className="flex flex-row items-center gap-x-4">
         <input
           id={`checked-${task.title}`}
           type="checkbox"
           checked={task.checked}
           onChange={() => handleCheckboxChange(task)}
-          className="input border-blue-dark checked:bg-blue-dark h-4 w-4 cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid bg-transparent"
+          className="input h-[1.091rem] w-[1.091rem] cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid border-blue bg-transparent checked:border-purple-dark checked:bg-purple-dark hover:border-blue-dark hover:bg-blue/20 checked:hover:border-purple checked:hover:bg-purple"
         />
         <label
           className={`text-sm font-normal ${task.checked
-              ? 'text-greyChecked line-through'
-              : 'text-grey-100 no-underline'
+              ? 'text-gray-300 line-through'
+              : 'text-gray-100 no-underline'
             }`}
           htmlFor={`checked-${task.title}`}
         >

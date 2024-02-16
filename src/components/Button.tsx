@@ -2,7 +2,7 @@ const Button = () => {
   return (
     <button
       type="submit"
-      className="border-blue bg-blue hover:disabled:border-blue hover:disabled:bg-blue active:disabled:border-blue active:disabled:bg-blue flex h-full w-24 items-center justify-between gap-x-2 rounded-def border border-solid p-2.5 font-bold disabled:opacity-40 max-sm:p-2"
+      className="flex h-full w-24 items-center justify-between gap-x-2 rounded-def border border-solid border-blue-dark bg-blue-dark p-2.5 font-bold hover:border-blue hover:bg-blue disabled:opacity-40 hover:disabled:border-blue-dark hover:disabled:bg-blue-dark active:disabled:border-blue-dark active:disabled:bg-blue-dark max-sm:p-2"
     >
       Create
       <svg

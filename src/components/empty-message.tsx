@@ -29,10 +29,10 @@ const EmptyMessage = () => {
       </svg>
 
       <div className="flex flex-col items-center text-center">
-        <p className="text-base font-bold text-grey-300">
+        <p className="text-base font-bold text-gray-300">
           You don{"'"}t have tasks registered yet
         </p>
-        <p className="text-sm font-normal text-grey-300">
+        <p className="text-sm font-normal text-gray-300">
           Create tasks and organize your to-do items
         </p>
       </div>
