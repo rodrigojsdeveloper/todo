@@ -1,7 +1,7 @@
-import TaskSummary from '@/components/task-summary'
-import TaskList from '@/components/task-list'
-import Header from '@/components/header'
-import Form from '@/components/form'
+import { TaskSummary } from '@/components/task-summary'
+import { TaskList } from '@/components/task-list'
+import { Header } from '@/components/header'
+import { Form } from '@/components/form'
 
 export default function Home() {
   return (

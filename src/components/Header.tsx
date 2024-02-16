@@ -1,4 +1,4 @@
-const Header = () => {
+export const Header = () => {
   return (
     <header className="flex h-[9.375rem] w-full items-center justify-center bg-gray-700 p-2 max-sm:items-start max-sm:pt-6 sm:h-[12.5rem]">
       <svg
@@ -52,5 +52,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

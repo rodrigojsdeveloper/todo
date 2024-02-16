@@ -1,10 +1,11 @@
 'use client'
+
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
 import { ITaskProps, ITaskContextData } from '../interfaces'
 
-const TaskContext = createContext({} as ITaskContextData)
+export const TaskContext = createContext({} as ITaskContextData)
 
-const TaskContextProvider = ({ children }: PropsWithChildren) => {
+export const TaskContextProvider = ({ children }: PropsWithChildren) => {
   const isBrowser = typeof window !== 'undefined'
   const localStorageKey = 'ToDo: taskList'
 
@@ -89,5 +90,3 @@ const TaskContextProvider = ({ children }: PropsWithChildren) => {
     </TaskContext.Provider>
   )
 }
-
-export { TaskContext, TaskContextProvider }

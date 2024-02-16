@@ -1,5 +1,5 @@
-import { TaskContextProvider } from './task.context'
 import { PropsWithChildren } from 'react'
+import { TaskContextProvider } from './task.context'
 
 const Providers = ({ children }: PropsWithChildren) => {
   return <TaskContextProvider>{children}</TaskContextProvider>

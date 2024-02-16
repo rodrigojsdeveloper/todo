@@ -1,4 +1,4 @@
-const Button = () => {
+export const Button = () => {
   return (
     <button
       type="submit"
@@ -31,5 +31,3 @@ const Button = () => {
     </button>
   )
 }
-
-export default Button

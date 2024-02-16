@@ -1,11 +1,12 @@
 'use client'
-import { TaskContext } from '@/contexts/task.context'
-import EmptyMessage from './empty-message'
-import { useContext } from 'react'
-import Loading from './loading'
-import Task from './task'
 
-const TaskList = () => {
+import { useContext } from 'react'
+import { TaskContext } from '@/contexts/task.context'
+import { EmptyMessage } from './empty-message'
+import { Loading } from './loading'
+import { Task } from './task'
+
+export const TaskList = () => {
   const { taskList, isLoading } = useContext(TaskContext)
 
   return (
@@ -20,5 +21,3 @@ const TaskList = () => {
     </menu>
   )
 }
-
-export default TaskList

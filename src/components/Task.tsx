@@ -1,9 +1,11 @@
 'use client'
-import { TaskContext } from '@/contexts/task.context'
-import React, { useContext, useRef } from 'react'
-import { ITask } from '@/interfaces'
 
-const Task = ({ task }: ITask) => {
+import React, { useContext, useRef } from 'react'
+import { TaskContext } from '@/contexts/task.context'
+import { ITask } from '@/interfaces'
+import { cn } from '@/utils/cn'
+
+export const Task = ({ task }: ITask) => {
   const svgRef = useRef<SVGSVGElement | null>(null)
 
   const { removeTask, handleCheckboxChange } = useContext(TaskContext)
@@ -33,8 +35,10 @@ const Task = ({ task }: ITask) => {
 
   return (
     <div
-      className={`flex h-14 w-full flex-row items-center justify-between rounded-def border border-solid border-gray-400 bg-gray-500 p-5 duration-200 ${task.checked ? 'border-gray-500' : 'border-gray-400'
-        }`}
+      className={cn(
+        'flex h-14 w-full flex-row items-center justify-between rounded-def border border-solid border-gray-400 bg-gray-500 p-5 duration-200',
+        task.checked ? 'border-gray-500' : 'border-gray-400',
+      )}
     >
       <div className="flex flex-row items-center gap-x-4">
         <input
@@ -45,10 +49,12 @@ const Task = ({ task }: ITask) => {
           className="input h-[1.091rem] w-[1.091rem] cursor-pointer appearance-none place-content-center rounded-full border-2 border-solid border-blue bg-transparent checked:border-purple-dark checked:bg-purple-dark hover:border-blue-dark hover:bg-blue/20 checked:hover:border-purple checked:hover:bg-purple"
         />
         <label
-          className={`text-sm font-normal ${task.checked
+          className={cn(
+            'text-sm font-normal',
+            task.checked
               ? 'text-gray-300 line-through'
-              : 'text-gray-100 no-underline'
-            }`}
+              : 'text-gray-100 no-underline',
+          )}
           htmlFor={`checked-${task.title}`}
         >
           {task.title}
@@ -121,5 +127,3 @@ const Task = ({ task }: ITask) => {
     </div>
   )
 }
-
-export default Task

@@ -1,6 +1,6 @@
 import { InputProps } from '@/interfaces'
 
-const Input = ({ register }: InputProps) => {
+export const Input = ({ register }: InputProps) => {
   return (
     <input
       {...register('title')}
@@ -9,5 +9,3 @@ const Input = ({ register }: InputProps) => {
     />
   )
 }
-
-export default Input

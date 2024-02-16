@@ -1,14 +1,15 @@
 'use client'
+
 import { TaskContext } from '@/contexts/task.context'
 import { useContext } from 'react'
 
-const TaskSummary = () => {
+export const TaskSummary = () => {
   const { taskListLength, taskListCheckedLength } = useContext(TaskContext)
 
   return (
     <div className="mb-6 mt-16 flex flex-row items-center justify-between text-sm font-bold">
       <div className="flex flex-row items-center justify-between gap-x-2">
-        <p className="text-blue-dark">Created Tasks</p>
+        <p className="text-blue">Created Tasks</p>
         <span className="rounded-full bg-gray-400 px-2 py-0.5 font-extrabold">
           {taskListLength}
         </span>
@@ -25,5 +26,3 @@ const TaskSummary = () => {
     </div>
   )
 }
-
-export default TaskSummary
