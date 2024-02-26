@@ -1,21 +1,18 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 * {
   border: 0;
   margin: 0;
   padding: 0;
   outline: 0 !important;
-  resize: none;
   box-sizing: border-box;
   scroll-behavior: smooth;
 
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 html {
@@ -55,16 +52,6 @@ a {
   border: solid 0.188rem transparent;
 }
 
-::selection {
-  background-color: rgba(78, 168, 222, 0.1);
-}
-
 .input[type="checkbox"]:checked {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M7.93059 0.342093L3.59865 4.67403L1.11618 2.19156L0.280273 3.02747L3.59865 6.34584L8.76649 1.178L7.93059 0.342093Z" fill="%23F2F2F2"/></svg>');
-}
-
-.customLoader {
-  background:
-    radial-gradient(farthest-side, #333333 94%, #0000) top/0.5rem 0.5rem no-repeat,
-    conic-gradient(#0000 30%, #333333);
 }

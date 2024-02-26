@@ -1,29 +1,26 @@
 'use client'
 
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
-import { ITaskProps, ITaskContextData } from '../interfaces'
+import { TaskProps, TaskContextData } from '../interfaces'
 
-export const TaskContext = createContext({} as ITaskContextData)
+export const TaskContext = createContext({} as TaskContextData)
 
 export const TaskContextProvider = ({ children }: PropsWithChildren) => {
   const isBrowser = typeof window !== 'undefined'
   const localStorageKey = 'ToDo: taskList'
 
-  const [taskList, setTaskList] = useState<ITaskProps[]>([])
-
+  const [taskList, setTaskList] = useState<TaskProps[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [taskListCheckedLength, setTaskListCheckedLength] = useState<number>(0)
   const [taskListLength, setTaskListLength] = useState<number>(0)
 
-  const [taskListCheckedLength, setTaskListCheckedLength] = useState<number>(0)
-
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-
-  const saveListToLocalStorage = (updatedList: ITaskProps[]) => {
+  const saveListToLocalStorage = (updatedList: TaskProps[]) => {
     if (isBrowser) {
       localStorage.setItem(localStorageKey, JSON.stringify(updatedList))
       setTaskList(updatedList)
       setTaskListLength(updatedList.length)
       setTaskListCheckedLength(
-        updatedList.filter((task: ITaskProps) => task.checked).length,
+        updatedList.filter((task: TaskProps) => task.checked).length,
       )
     }
   }
@@ -36,17 +33,17 @@ export const TaskContextProvider = ({ children }: PropsWithChildren) => {
     return []
   }
 
-  const addTask = (task: ITaskProps) => {
+  const handleAddTask = (task: TaskProps) => {
     const updatedList = [task, ...taskList]
     saveListToLocalStorage(updatedList)
   }
 
-  const removeTask = (task: ITaskProps) => {
-    const updatedList = taskList.filter((t: ITaskProps) => t.id !== task.id)
+  const handleRemoveTask = (task: TaskProps) => {
+    const updatedList = taskList.filter((t: TaskProps) => t.id !== task.id)
     saveListToLocalStorage(updatedList)
   }
 
-  const toggleCheckbox = (task: ITaskProps) => {
+  const toggleCheckbox = (task: TaskProps) => {
     const updatedTask = { ...task, checked: !task.checked }
     const updatedList = taskList.map((t) =>
       t.id === task.id ? updatedTask : t,
@@ -55,7 +52,7 @@ export const TaskContextProvider = ({ children }: PropsWithChildren) => {
     saveListToLocalStorage(updatedList)
   }
 
-  const handleCheckboxChange = (task: ITaskProps) => {
+  const handleCheckboxChange = (task: TaskProps) => {
     toggleCheckbox(task)
   }
 
@@ -66,21 +63,21 @@ export const TaskContextProvider = ({ children }: PropsWithChildren) => {
     setTaskList(storedList)
     setTaskListLength(storedList.length)
     setTaskListCheckedLength(
-      storedList.filter((task: ITaskProps) => task.checked).length,
+      storedList.filter((task: TaskProps) => task.checked).length,
     )
 
     setIsLoading(false)
   }, [])
 
-  const taskContextData: ITaskContextData = {
-    addTask,
+  const taskContextData: TaskContextData = {
+    handleAddTask,
     isLoading,
     setIsLoading,
     taskList,
     taskListLength,
     taskListCheckedLength,
     toggleCheckbox,
-    removeTask,
+    handleRemoveTask,
     handleCheckboxChange,
   }
 

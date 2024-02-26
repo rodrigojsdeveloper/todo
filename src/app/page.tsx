@@ -5,13 +5,13 @@ import { Form } from '@/components/form'
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Header />
-      <div className="mx-auto -mt-6 w-full max-w-[46rem] px-2.5 pb-2.5">
+      <main className="mx-auto -mt-6 w-full max-w-[46rem] px-2.5 pb-2.5">
         <Form />
         <TaskSummary />
         <TaskList />
-      </div>
-    </main>
+      </main>
+    </>
   )
 }

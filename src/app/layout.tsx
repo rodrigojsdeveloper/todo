@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import Providers from '@/contexts'
+import { cn } from '@/utils/cn'
 import './globals.css'
 
 const inter = Inter({
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={`${inter.variable} font-inter`}>
-      <body>
+    <html lang="en">
+      <body className={cn('font-inter antialiased', inter.variable)}>
         <Providers>{children}</Providers>
       </body>
     </html>

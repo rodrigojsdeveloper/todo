@@ -1,26 +1,26 @@
-import { FieldValues, UseFormRegister } from 'react-hook-form'
 import { Dispatch, SetStateAction } from 'react'
+import { FieldValues, UseFormRegister } from 'react-hook-form'
 
-export interface ITaskProps {
+export interface TaskProps {
   id: string
   title: string
   checked: boolean
 }
 
 export interface ITask {
-  task: ITaskProps
+  task: TaskProps
 }
 
-export interface ITaskContextData {
-  addTask: (task: ITaskProps) => void
+export interface TaskContextData {
+  handleAddTask: (task: TaskProps) => void
   isLoading: boolean
   setIsLoading: Dispatch<SetStateAction<boolean>>
-  taskList: ITaskProps[]
+  taskList: TaskProps[]
   taskListLength: number
   taskListCheckedLength: number
-  toggleCheckbox: (task: ITaskProps) => void
-  removeTask: (task: ITaskProps) => void
-  handleCheckboxChange: (task: ITaskProps) => void
+  toggleCheckbox: (task: TaskProps) => void
+  handleRemoveTask: (task: TaskProps) => void
+  handleCheckboxChange: (task: TaskProps) => void
 }
 
 export interface InputProps {

@@ -12,7 +12,7 @@ import * as zod from 'zod'
 type FormData = zod.infer<typeof taskSchema>
 
 export const Form = () => {
-  const { addTask } = useContext(TaskContext)
+  const { handleAddTask } = useContext(TaskContext)
 
   const schema = zod.object({
     title: zod.string().min(1),
@@ -28,7 +28,7 @@ export const Form = () => {
       title: data.title,
       checked: false,
     }
-    addTask(taskData)
+    handleAddTask(taskData)
     reset()
   }
 
