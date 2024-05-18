@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['--font-inter'],
+        inter: ['var(--font-inter)'],
       },
       colors: {
         gray: {
