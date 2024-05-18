@@ -1,9 +1,9 @@
 'use client'
 
 import { createContext, useEffect, useState, PropsWithChildren } from 'react'
-import { TaskProps, TaskContextData } from '../interfaces'
+import { TaskProps, TaskContextDataProps } from '@/interfaces'
 
-export const TaskContext = createContext({} as TaskContextData)
+export const TaskContext = createContext({} as TaskContextDataProps)
 
 export const TaskContextProvider = ({ children }: PropsWithChildren) => {
   const isBrowser = typeof window !== 'undefined'
@@ -69,7 +69,7 @@ export const TaskContextProvider = ({ children }: PropsWithChildren) => {
     setIsLoading(false)
   }, [])
 
-  const taskContextData: TaskContextData = {
+  const taskContextData: TaskContextDataProps = {
     handleAddTask,
     isLoading,
     setIsLoading,

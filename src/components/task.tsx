@@ -2,17 +2,17 @@
 
 import React, { useContext } from 'react'
 import { TaskContext } from '@/contexts/task.context'
-import { ITask } from '@/interfaces'
+import { TaskEntireProps } from '@/interfaces'
 import { cn } from '@/utils/cn'
 import { Trash2 } from 'lucide-react'
 
-export const Task = ({ task }: ITask) => {
+export const Task = ({ task }: TaskEntireProps) => {
   const { handleRemoveTask, handleCheckboxChange } = useContext(TaskContext)
 
   return (
     <div
       className={cn(
-        'flex w-full flex-row justify-between gap-x-4 rounded-def border border-solid border-gray-400 bg-gray-500 p-4 duration-200',
+        'flex w-full flex-row justify-between gap-x-4 rounded-lg border border-solid border-gray-400 bg-gray-500 p-4 duration-200',
         task.checked ? 'border-gray-500' : 'border-gray-400',
       )}
     >

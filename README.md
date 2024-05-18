@@ -12,7 +12,7 @@
 You can clone this repository using the following command:
 
 ```
-https://github.com/rodrigojsdeveloper/todo.git
+git clone https://github.com/rodrigojsdeveloper/todo.git
 ```
 
 ## Package Manager
@@ -44,5 +44,5 @@ https://todo-boost.vercel.app
 ```
 
 <br/>
-<p align="center">Developed by <a href="https://www.linkedin.com/in/rodrigo-de-jesus-silva/">Rodrigo Silva</a>
+<p align="center">Developed by <a href="https://www.linkedin.com/in/rodrigojsdeveloper">Rodrigo Silva</a>
 </p>

@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   border: 0;
@@ -25,11 +25,6 @@ body {
 
   color: #f2f2f2;
   background-color: #1a1a1a;
-}
-
-:is(button, a) {
-  transition: 0.5s;
-  cursor: pointer;
 }
 
 a {

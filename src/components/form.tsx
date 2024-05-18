@@ -22,7 +22,7 @@ export const Form = () => {
     resolver: zodResolver(schema),
   })
 
-  const onSubmitFunction = (data: FieldValues) => {
+  const onSubmitFunction = handleSubmit((data: FieldValues) => {
     const taskData: FormData = {
       id: crypto.randomUUID(),
       title: data.title,
@@ -30,11 +30,11 @@ export const Form = () => {
     }
     handleAddTask(taskData)
     reset()
-  }
+  })
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmitFunction)}
+      onSubmit={onSubmitFunction}
       className="flex h-[3.125rem] justify-center gap-x-2 sm:h-[3.375rem]"
     >
       <Input register={register} />

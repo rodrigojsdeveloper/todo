@@ -7,11 +7,11 @@ export interface TaskProps {
   checked: boolean
 }
 
-export interface ITask {
+export interface TaskEntireProps {
   task: TaskProps
 }
 
-export interface TaskContextData {
+export interface TaskContextDataProps {
   handleAddTask: (task: TaskProps) => void
   isLoading: boolean
   setIsLoading: Dispatch<SetStateAction<boolean>>
